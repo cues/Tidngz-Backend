@@ -122,3 +122,17 @@ class Sanitize {
 
 }
 
+
+
+class APIKey {
+    public static function check_key($con, $key){
+        $check_key = mysqli_query($con,"SELECT * FROM Api_Keys WHERE CLIENT = '$key'");
+        $row_key = mysqli_num_rows($check_key);
+        if($row_key == 0){
+             return false;
+        } else {
+             return true;
+        }
+    }
+}
+

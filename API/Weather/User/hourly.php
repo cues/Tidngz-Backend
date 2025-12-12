@@ -299,9 +299,7 @@ class Hourly extends Db{
                 $new_hourly->precipitation_prob_percent   =   $row_weather_forecast['PRECIPITATION_PROB_PERCENT'];         
                 $new_hourly->precipitation_prob_type   =   $row_weather_forecast['PRECIPITATION_PROB_TYPE'];  
                 $new_hourly->precipitation_mm   =   $row_weather_forecast['PRECIPITATION_MM'];
-                // $new_hourly->precipitation_mm   =   20;
                 $new_hourly->snow_mm            =   $row_weather_forecast['SNOW_MM'];
-                // $new_hourly->snow_mm            =   20;
                 $new_hourly->visibility_km      =   $row_weather_forecast['VISIBILITY_KM'];
                 $new_hourly->visibility_mph     =   $row_weather_forecast['VISIBILITY_MPH'];
 
