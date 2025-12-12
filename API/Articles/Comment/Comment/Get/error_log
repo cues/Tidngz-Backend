@@ -1,0 +1,54 @@
+[07-Feb-2019 10:36:31 UTC] PHP Warning:  require(../../../headers.php): failed to open stream: No such file or directory in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 2
+[07-Feb-2019 10:36:31 UTC] PHP Fatal error:  require(): Failed opening required '../../../headers.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 2
+[08-Feb-2019 14:12:18 GMT] PHP Notice:  Uninitialized string offset: 0 in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 77
+[08-Feb-2019 14:12:18 GMT] PHP Notice:  Uninitialized string offset: 0 in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 77
+[08-Feb-2019 14:12:18 GMT] PHP Notice:  Uninitialized string offset: 0 in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 77
+[18-Feb-2019 03:24:26 UTC] PHP Fatal error:  Class 'Db' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/all_comments.php on line 11
+[19-Feb-2019 01:38:14 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:38:14 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments(1, '500', '120', 0, 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:49:03 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:49:03 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('1819', '500', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:52:00 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:52:00 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('1819', '500', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:55:18 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:55:18 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('1819', '500', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:55:23 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:55:23 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('1820', '498', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:55:48 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:55:48 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('1819', '500', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:56:32 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:56:32 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments(1, '500', '120', 0, 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43
+[19-Feb-2019 01:57:10 GMT] PHP Notice:  Undefined variable: type in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php on line 21
+[19-Feb-2019 01:57:10 GMT] PHP Fatal error:  Uncaught Error: Class 'AllComments' not found in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php:43
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/comment.php(37): Comments->get_comments('2000', '500', '120', '10', 0)
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Get/data.php on line 43

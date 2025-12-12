@@ -1,0 +1,20 @@
+[08-Feb-2019 14:30:52 GMT] PHP Fatal error:  Uncaught Error: Call to undefined function int() in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php:12
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/misc.php(37): Comments->like_comment('500', '120')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php on line 12
+[08-Feb-2019 14:31:05 GMT] PHP Fatal error:  Uncaught Error: Call to undefined function int() in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php:12
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/misc.php(37): Comments->like_comment('500', '120')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php on line 12
+[08-Feb-2019 14:31:21 GMT] PHP Fatal error:  Uncaught Error: Call to undefined function int() in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php:12
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/misc.php(37): Comments->like_comment('500', '120')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php on line 12
+[08-Feb-2019 14:32:25 GMT] PHP Fatal error:  Uncaught Error: Call to undefined function int() in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php:12
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/misc.php(37): Comments->like_comment('500', '120')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Misc/like_data.php on line 12

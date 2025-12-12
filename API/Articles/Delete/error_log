@@ -1,0 +1,6 @@
+[07-Feb-2019 13:30:56 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 20
+[07-Feb-2019 13:30:56 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 20
+[07-Feb-2019 13:30:56 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 21
+[07-Feb-2019 13:30:56 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 21
+[07-Feb-2019 13:30:56 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 22
+[07-Feb-2019 13:30:56 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Delete/delete.php on line 22

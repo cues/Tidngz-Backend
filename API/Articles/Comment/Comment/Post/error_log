@@ -1,0 +1,25 @@
+[18-Feb-2019 02:43:06 GMT] PHP Notice:  Uninitialized string offset: 0 in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 112
+[18-Feb-2019 07:01:27 GMT] PHP Notice:  Undefined variable: c in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[18-Feb-2019 07:01:27 GMT] PHP Notice:  Undefined variable: c in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[18-Feb-2019 07:01:27 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[18-Feb-2019 07:03:05 GMT] PHP Notice:  Undefined variable: c in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[18-Feb-2019 07:03:05 GMT] PHP Notice:  Undefined variable: c in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[18-Feb-2019 07:03:05 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 134
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Undefined variable: new_article in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Trying to get property 'articles' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Undefined variable: a in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Trying to get property 'articles_id' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Undefined variable: a in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Notice:  Undefined variable: a in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:31:07 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:09 GMT] PHP Notice:  Undefined variable: new_article in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:09 GMT] PHP Notice:  Trying to get property 'articles' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:09 GMT] PHP Notice:  Undefined variable: a in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:09 GMT] PHP Notice:  Trying to get property 'articles_id' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:09 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:39 GMT] PHP Notice:  Undefined variable: new_article in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:39 GMT] PHP Notice:  Trying to get property 'articles' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:39 GMT] PHP Notice:  Undefined variable: a in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[19-Feb-2019 04:32:39 GMT] PHP Notice:  Trying to get property 'articles_id' of non-object in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 151
+[27-Feb-2019 10:24:01 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 135
+[27-Feb-2019 10:24:01 GMT] PHP Warning:  Creating default object from empty value in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Comment/Comment/Post/data.php on line 146

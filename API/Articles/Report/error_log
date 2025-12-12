@@ -1,0 +1,15 @@
+[02-Feb-2019 06:39:53 GMT] PHP Notice:  Undefined variable: report in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/data.php on line 20
+[02-Feb-2019 06:41:50 GMT] PHP Parse error:  syntax error, unexpected '$user_id' (T_VARIABLE) in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/data.php on line 6
+[02-Feb-2019 06:41:54 GMT] PHP Parse error:  syntax error, unexpected '$user_id' (T_VARIABLE) in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/data.php on line 6
+[02-Feb-2019 06:42:16 GMT] PHP Parse error:  syntax error, unexpected '$user_id' (T_VARIABLE) in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/data.php on line 6
+[02-Feb-2019 06:48:30 GMT] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/jyq9py3n31od/public_html/Tidngz/db_pdo.php on line 65
+[07-Feb-2019 13:30:50 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 23
+[07-Feb-2019 13:30:50 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 23
+[07-Feb-2019 13:30:50 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 24
+[07-Feb-2019 13:30:50 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 24
+[07-Feb-2019 13:30:50 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 25
+[07-Feb-2019 13:30:50 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 25
+[07-Feb-2019 13:30:50 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 26
+[07-Feb-2019 13:30:50 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 26
+[07-Feb-2019 13:30:50 GMT] PHP Notice:  Undefined variable: check_sanitize in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 27
+[07-Feb-2019 13:30:50 GMT] PHP Warning:  preg_match(): Empty regular expression in /home/jyq9py3n31od/public_html/Tidngz/API/Articles/Report/report.php on line 27

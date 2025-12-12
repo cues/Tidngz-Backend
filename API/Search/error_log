@@ -1,0 +1,198 @@
+[14-Mar-2019 08:07:42 GMT] PHP Warning:  require(../user_data.php): failed to open stream: No such file or directory in /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php on line 13
+[14-Mar-2019 08:07:42 GMT] PHP Fatal error:  require(): Failed opening required '../user_data.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php on line 13
+[14-Mar-2019 08:07:57 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[14-Mar-2019 08:08:03 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[14-Mar-2019 08:10:18 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[14-Mar-2019 08:11:28 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[14-Mar-2019 08:11:49 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[14-Mar-2019 08:12:34 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method ImageData::get_country_flag() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php:63
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php(17): Search_Place->get_search('120', 'E')
+#1 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(54): Search->get_search('120', 'E')
+#2 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_places.php on line 63
+[21-Mar-2019 11:17:07 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'J')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:07 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jd')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:07 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jdj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:08 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jdjk')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:08 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jdjkk')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:08 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jd')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:09 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'J')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:09 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', '1')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:09 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jdjk')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[21-Mar-2019 11:17:09 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'Jdj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:09:52 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('168', 'B')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:10:04 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('168', '1')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:10:04 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('168', 'G')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:10:06 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('168', 'Go')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:10:06 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('168', 'Goa')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:12:44 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('170', 'G')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 08:14:29 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('171', 'H')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:26:59 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('176', 'G')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:27:56 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('177', 'J')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:40:10 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('177', 'Jb')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:40:11 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('177', 'Just')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:44:03 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('178', 'H')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:44:29 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('178', 'Hb')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:44:59 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('178', 'Hbc')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:46:29 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('179', 'K')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:46:38 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('179', 'Kj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:46:39 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('179', 'kJ')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:47:28 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'kj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:48:08 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('179', 'kj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:48:13 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'kj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:48:23 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 'kj')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
+[24-Mar-2019 09:48:25 GMT] PHP Fatal error:  Uncaught Error: Call to undefined method Search::closeConnection() in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php:68
+Stack trace:
+#0 /home/jyq9py3n31od/public_html/Tidngz/API/Search/search.php(56): Search->get_search('120', 't')
+#1 {main}
+  thrown in /home/jyq9py3n31od/public_html/Tidngz/API/Search/data_all.php on line 68
