@@ -85,6 +85,8 @@ class Search_Suggestions extends Db{
     }
 
 
+    
+
     // Get combined suggestions (personalized + trending + similar users)
     public function get_combined_suggestions($user_id){
 
@@ -133,13 +135,16 @@ class Search_Suggestions extends Db{
 
                     if($search_item == 'PLACE'){
                         $place = New Place();
-                        $new_item->item = $place->get_place($user_id, $search_item_id);
+                        $new_item->item = $place->get_place($user_id, (int)$search_item_id);
                     }
                     else if($search_item == 'USER'){
-                        $new_item->item = $new_search_suggestions->search_user_type(0, $user_id, $search_item_id);
+                        $user = New User();
+                        $new_item->item = $user->get_user($user_id, (int)$search_item_id);
+                        // $new_item->item = $new_search_suggestions->search_user_type(0, $user_id, $search_item_id);
                     }
                     else if($search_item == 'TAG'){
-                        $new_item->item = $new_search_suggestions->search_tag_type(0, $search_item_id);
+                        $tag = New Tag();
+                        $new_item->item = $tag->get_tag($user_id, (int)$search_item_id);
                     }
 
                     if($new_item->item != null){
@@ -186,13 +191,16 @@ class Search_Suggestions extends Db{
 
                         if($search_item == 'PLACE'){
                             $place = New Place();
-                            $new_item->item = $place->get_place($user_id, $search_item_id);
+                            $new_item->item = $place->get_place($user_id, (int)$search_item_id);
                         }
                         else if($search_item == 'USER'){
-                            $new_item->item = $new_search_suggestions->search_user_type(0, $user_id, $search_item_id);
+                            $user = New User();
+                            $new_item->item = $user->get_user($user_id, (int)$search_item_id);
+                            // $new_item->item = $new_search_suggestions->search_user_type(0, $user_id, $search_item_id);
                         }
                         else if($search_item == 'TAG'){
-                            $new_item->item = $new_search_suggestions->search_tag_type(0, $search_item_id);
+                            $tag = New Tag();
+                            $new_item->item = $tag->get_tag($user_id, (int)$search_item_id);
                         }
 
                         if($new_item->item != null){
@@ -251,10 +259,12 @@ class Search_Suggestions extends Db{
                             $new_item->item = $place->get_place($user_id, $search_item_id);
                         }
                         else if($search_item == 'USER'){
-                            $new_item->item = $new_search_suggestions->search_user_type(0, $user_id, $search_item_id);
+                            $user = New User();
+                            $new_item->item = $user->get_user($user_id, (int)$search_item_id);
                         }
                         else if($search_item == 'TAG'){
-                            $new_item->item = $new_search_suggestions->search_tag_type(0, $search_item_id);
+                            $tag = New Tag();
+                            $new_item->item = $tag->get_tag($user_id, (int)$search_item_id);
                         }
 
                         if($new_item->item != null){

@@ -2,7 +2,7 @@
 
 
 class PlaceData{
-    public $key;   
+    // public $key;   
     public $id;   
     public $google_id;   
     public $name;
@@ -71,7 +71,7 @@ class Place extends Db{
         $country   =  str_ireplace("+" , "'", $country);
         $country   =  str_ireplace("<" , ",", $country);
 
-        $new_place->key         =  (int)$row_place['ID'];
+        // $new_place->key         =  (int)$row_place['ID'];
         $new_place->id          =  (int)$row_place['ID'];
         $new_place->google_id   =  $row_place['PLACE_ID'];
         $new_place->name        =  $place;

@@ -10,11 +10,6 @@ class Items_Tags {
     public $item;
 }
 
-class Tag{
-    public $key;   
-    public $tag_id;   
-    public $tag;   
-}
 
 
 class Search_Tag extends Db{
@@ -34,15 +29,20 @@ class Search_Tag extends Db{
 
                 $new_search->items[$t] = New Items_Tags();
 
-                $new_search->items[$t]->item = New Tag();
-
-                $new_search->items[$t]->item->tag      =  $row_tag['TAG'];
-
                 $this->query("SELECT * from Article_Tags where TAG = ?");
-                $this->bind(1, $new_search->items[$t]->item->tag);
+                $this->bind(1, $row_tag['TAG']);
                 $single_tag = $this->single();
-                $new_search->items[$t]->item->tag_id   =  (int)$single_tag['ID'];
-                $new_search->items[$t]->item->key      =  (int)$single_tag['ID'] . $key;
+                
+                $tag = New Tag();
+                $new_search->items[$t]->item = $tag->get_tag($user, (int)$single_tag['ID']);
+
+                // $new_search->items[$t]->item->tag      =  $row_tag['TAG'];
+
+                // $this->query("SELECT * from Article_Tags where TAG = ?");
+                // $this->bind(1, $new_search->items[$t]->item->tag);
+                // $single_tag = $this->single();
+                // $new_search->items[$t]->item->tag_id   =  (int)$single_tag['ID'];
+                // $new_search->items[$t]->item->key      =  (int)$single_tag['ID'] . $key;
        
                 $t++;
 

@@ -42,13 +42,15 @@ class Search_History extends Db{
 
                         if($search_item == 'PLACE'){
                             $place = New Place();
-                            $new_search->items[$i]->item = $place->get_place($user_id, $search_item_id);
+                            $new_search->items[$i]->item = $place->get_place($user_id, (int)$search_item_id);
                         }
                         if($search_item == 'USER'){
-                            $new_search->items[$i]->item = $new_search_history->search_user_type(4, $user_id, $search_item_id);
+                            $user = New User();
+                            $new_search->items[$i]->item = $user->get_user($user_id, (int)$search_item_id);
                         }
                         if($search_item == 'TAG'){
-                            $new_search->items[$i]->item = $new_search_history->search_tag_type(4, $search_item_id);
+                            $tag = New Tag();
+                            $new_search->items[$i]->item = $tag->get_tag($user_id, (int)$search_item_id);
                         }
 
                         $i++;
@@ -121,69 +123,69 @@ class Search_Type extends Db {
 
 
 
-    public function search_user_type($key, $user_id, $search_item_id){
+    // public function search_user_type($key, $user_id, $search_item_id){
 
-        $user           =   New User();
-        $image_data     =   New ImageData();
-        $user_data      =   New UserData();
-        $users_blocked  =   $user_data->users_blocked($user_id);
+    //     $user           =   New User();
+    //     $image_data     =   New ImageData();
+    //     $user_data      =   New UserData();
+    //     $users_blocked  =   $user_data->users_blocked($user_id);
 
 
-        $this->query("SELECT * from users where ID = ? AND ID NOT IN ($users_blocked)");
-        $this->bind(1, $search_item_id);
-        $row_user = $this->single();
+    //     $this->query("SELECT * from users where ID = ? AND ID NOT IN ($users_blocked)");
+    //     $this->bind(1, $search_item_id);
+    //     $row_user = $this->single();
 
-        if($this->count() > 0){
+    //     if($this->count() > 0){
             
-            $users_name = strtolower($row_user['NAME']);
+    //         $users_name = strtolower($row_user['NAME']);
 
-            $user->key               = (int)$row_user['ID'] . $key;
-            $user->user_id           = (int)$row_user['ID'];
-            $user->username          = $row_user['USERNAME'];
-            $user->user_name         = ucwords($users_name);
-            $user->user_name_initial = ucfirst($users_name[0]);
-            $user->user_image        = $image_data->get_user_image($row_user['IMAGE_3']);
-            $user->user_verified     = (int)$row_user['VERIFIED'];
-            $user->user_sex          = $row_user['SEX'];
+    //         $user->key               = (int)$row_user['ID'] . $key;
+    //         $user->user_id           = (int)$row_user['ID'];
+    //         $user->username          = $row_user['USERNAME'];
+    //         $user->user_name         = ucwords($users_name);
+    //         $user->user_name_initial = ucfirst($users_name[0]);
+    //         $user->user_image        = $image_data->get_user_image($row_user['IMAGE_3']);
+    //         $user->user_verified     = (int)$row_user['VERIFIED'];
+    //         $user->user_sex          = $row_user['SEX'];
         
 
-            $this->query("SELECT * FROM User_Follow WHERE USER_ID = ? AND USER_FOLLOWING_ID = ?");
-            $this->bind(1, $user_id);
-            $this->bind(2, $user->user_id);
+    //         $this->query("SELECT * FROM User_Follow WHERE USER_ID = ? AND USER_FOLLOWING_ID = ?");
+    //         $this->bind(1, $user_id);
+    //         $this->bind(2, $user->user_id);
 
 
-            $user->user_following = $this->count() == 1 ? true : false;
+    //         $user->user_following = $this->count() == 1 ? true : false;
 
 
-        }
+    //     }
 
 
-        return $user;
+    //     return $user;
 
-    }
-
-
+    // }
 
 
-    public function search_tag_type($key, $search_item_id){
-
-        $tag = New Tag();
-
-        $this->query("SELECT * from Article_Tags where ID = ? ");
-        $this->bind(1, $search_item_id);
-        $row_tag = $this->single();
-
-        $tag->tag      =  $row_tag['TAG'];
-
-        $this->query("SELECT * from Article_Tags where TAG = ?");
-        $this->bind(1, $tag->tag);
-        $single_tag = $this->single();
-        $tag->tag_id   =  (int)$single_tag['ID'];
-        $tag->key      =  (int)$single_tag['ID'] . $key;
 
 
-        return $tag;
+    // public function search_tag_type($key, $search_item_id){
 
-    }
+    //     $tag = New Tag();
+
+    //     $this->query("SELECT * from Article_Tags where ID = ? ");
+    //     $this->bind(1, $search_item_id);
+    //     $row_tag = $this->single();
+
+    //     $tag->tag      =  $row_tag['TAG'];
+
+    //     $this->query("SELECT * from Article_Tags where TAG = ?");
+    //     $this->bind(1, $tag->tag);
+    //     $single_tag = $this->single();
+    //     $tag->tag_id   =  (int)$single_tag['ID'];
+    //     $tag->key      =  (int)$single_tag['ID'] . $key;
+
+
+    //     return $tag;
+
+    // }
 
 }

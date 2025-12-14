@@ -12,7 +12,8 @@ require "data_history.php";
 require "data_suggestions.php"; 
 
 require "../Place/data.php";
-// require "../User/data.php";
+require "../User/data.php";
+require "../Tag/data.php";
 
 require "../../images.php";
 require "../../user_data.php";
@@ -42,10 +43,7 @@ if(!empty($_GET['key']))
              exit();
         }
 
-        $check_key = mysqli_query($con,"SELECT * FROM Api_Keys WHERE CLIENT = '$key'");
-        $row_key = mysqli_num_rows($check_key);
-
-        if($row_key == 0){
+        if(!APIKey::check_key($con, $key)){
              response(400,"Invalid Key",NULL);
              exit();
         }

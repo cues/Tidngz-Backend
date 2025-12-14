@@ -5,6 +5,8 @@ require "../../../headers.php";
 require "../../../response.php";
 require "../../../db_pdo.php";
 require "data.php"; 
+require "../data.php";
+require "../../../images.php";
 
 
   

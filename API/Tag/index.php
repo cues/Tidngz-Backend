@@ -6,8 +6,6 @@ require "../../response.php";
 require "../../db_pdo.php";
 require "data.php"; 
 
-require "../../images.php";
-// require "../../user_data.php";
 
   
 if(!empty($_GET['key']))
@@ -15,12 +13,12 @@ if(!empty($_GET['key']))
     
         $key                =     empty($_GET['key'])               ?    0    :    mysqli_real_escape_string($con,$_GET['key']);
         $user_id            =     empty($_GET['user_id'])           ?    0    :    mysqli_real_escape_string($con,$_GET['user_id']);
-        $other_user_id      =     empty($_GET['other_user_id'])     ?    0    :    mysqli_real_escape_string($con,$_GET['other_user_id']);
+        $tag_id             =     empty($_GET['tag_id'])            ?    0    :    mysqli_real_escape_string($con,$_GET['tag_id']);
 
 
 
         // validate only key and user_id here
-        $sanitize_1 = array($key, $user_id, $other_user_id);
+        $sanitize_1 = array($key, $user_id, $tag_id);
 
         if( Sanitize::check_sanitize($sanitize_1, 1)){
              response(400,"Invalid Request",NULL);
@@ -34,8 +32,8 @@ if(!empty($_GET['key']))
 
 
 
-        $user = New User();
-        $data = $user->get_user($user_id, $other_user_id);
+        $tag = New Tag();
+        $data = $tag->get_tag($user_id, $tag_id);
 
 
 

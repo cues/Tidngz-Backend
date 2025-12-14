@@ -5,7 +5,6 @@
 class FollowPlace extends Db{
     public function follow_place($user_id, $place_id){
 
-
     // Use backticks for `USER` column (reserved word) and check existing follow
     $this->query("SELECT * from Places_Following WHERE PLACE_ID = ? AND `USER` = ?");
     $this->bind(1, $place_id);
@@ -20,7 +19,7 @@ class FollowPlace extends Db{
             $this->bind(2, $user_id);
             $this->execute();
             
-            return 1;
+            // return 1;
 
         }else{  
             
@@ -44,9 +43,14 @@ class FollowPlace extends Db{
             $this->bind(1, $place_id);
             $this->bind(2, $user_id);
             $this->execute();
-            return 2;
+            // return 2;
         }
-        
+
+        $place = new Place();
+        $updated_place = $place->get_place($user_id, $place_id);
+
+        // Return the refreshed place object/array after follow/unfollow
+        return $updated_place;
 
     }
 }
