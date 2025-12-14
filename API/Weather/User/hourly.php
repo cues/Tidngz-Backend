@@ -84,9 +84,15 @@ class Hourly extends Db{
                 $aqi_health = null;
 
                 // Safely extract AQI info if present
-                if(isset($result_air->indexes) && isset($result_air->indexes[1])){
+                  if(isset($result_air->indexes[1])){
                     $aqi = isset($result_air->indexes[1]->aqi) ? $result_air->indexes[1]->aqi : null;
                     $aqi_desc = isset($result_air->indexes[1]->category) ? $result_air->indexes[1]->category : null;
+                    $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
+                }
+
+                if($aqi == null){
+                    $aqi = isset($result_air->indexes[0]->aqi) ? $result_air->indexes[0]->aqi : null;
+                    $aqi_desc = isset($result_air->indexes[0]->category) ? $result_air->indexes[0]->category : null;
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
                 }
 

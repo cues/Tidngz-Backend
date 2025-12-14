@@ -35,7 +35,7 @@ class Hourly extends Db{
 
         date_default_timezone_set('GMT');
 
-        $date_1 =  date('Y-m-d H:i:s', strtotime($date) - 1 * 3600);
+        $date_1 =  date('Y-m-d H:i:s', strtotime($date) - 1/4 * 3600);
         $date_weather_inserted = 0;
 
 
@@ -81,18 +81,29 @@ class Hourly extends Db{
                 $aqi_desc = null;
                 $aqi_health = null;
 
-                // Safely extract AQI info if present
-                if(isset($result_air->indexes) && isset($result_air->indexes[1])){
+              
+                if(isset($result_air->indexes[1])){
                     $aqi = isset($result_air->indexes[1]->aqi) ? $result_air->indexes[1]->aqi : null;
                     $aqi_desc = isset($result_air->indexes[1]->category) ? $result_air->indexes[1]->category : null;
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
                 }
+
+                if($aqi == null){
+                    $aqi = isset($result_air->indexes[0]->aqi) ? $result_air->indexes[0]->aqi : null;
+                    $aqi_desc = isset($result_air->indexes[0]->category) ? $result_air->indexes[0]->category : null;
+                    $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
+                }
+
+                // return $result_air;
+
+            // return $aqi . ',' . $aqi_desc . ',' . $aqi_health;
 
             $url = 'https://weather.googleapis.com/v1/currentConditions:lookup?key=' . $google_api_key . '&location.latitude=' . $lat . '&location.longitude=' . $long;
             $client = curl_init($url);
             curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
             $response = curl_exec($client);
             $result = json_decode($response);
+// 
 
             // Only proceed if $result is an object and does not contain an error
             if(isset($result) && (!isset($result->error) || $result->error == null)){
