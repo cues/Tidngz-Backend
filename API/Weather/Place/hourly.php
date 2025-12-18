@@ -88,7 +88,7 @@ class Hourly extends Db{
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
                 }
 
-                if($aqi == null){
+                if($aqi == null && isset($result_air->indexes[0]->aqi)){
                     $aqi = isset($result_air->indexes[0]->aqi) ? $result_air->indexes[0]->aqi : null;
                     $aqi_desc = isset($result_air->indexes[0]->category) ? $result_air->indexes[0]->category : null;
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
@@ -104,9 +104,10 @@ class Hourly extends Db{
             $response = curl_exec($client);
             $result = json_decode($response);
 // 
+                // return $result;
 
             // Only proceed if $result is an object and does not contain an error
-            if(isset($result) && (!isset($result->error) || $result->error == null)){
+            if(isset($result) && (!isset($result->error) || $result->error == null )){
 
                         $source             =   'GOOGLE WEATHER';
                         $icon               =   $result->weatherCondition->type;
@@ -213,6 +214,12 @@ class Hourly extends Db{
             $this->query("SELECT * FROM Place_Weather_Hourly WHERE PLACE = ?");
             $this->bind(1,$place_id);
             $row_weather_forecast = $this->single();
+
+            if($this->count() == 0){
+                $this->closeConnection();
+                return $new_hourly;
+            }
+
             $date_weather_inserted = $row_weather_forecast['DATE'];
 
             if($date_weather_inserted > $date_1){

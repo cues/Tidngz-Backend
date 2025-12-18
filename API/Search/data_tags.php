@@ -50,6 +50,7 @@ class Search_Tag extends Db{
 
         }
 
+        $this->closeConnection();
         return $new_search;
     }
 }

@@ -50,6 +50,7 @@ class FollowPlace extends Db{
         $updated_place = $place->get_place($user_id, $place_id);
 
         // Return the refreshed place object/array after follow/unfollow
+        $this->closeConnection();
         return $updated_place;
 
     }

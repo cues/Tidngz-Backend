@@ -90,7 +90,7 @@ class Hourly extends Db{
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
                 }
 
-                if($aqi == null){
+                if($aqi == null && isset($result_air->indexes[0]->aqi)){
                     $aqi = isset($result_air->indexes[0]->aqi) ? $result_air->indexes[0]->aqi : null;
                     $aqi_desc = isset($result_air->indexes[0]->category) ? $result_air->indexes[0]->category : null;
                     $aqi_health = isset($result_air->healthRecommendations->generalPopulation) ? $result_air->healthRecommendations->generalPopulation : null;
@@ -280,6 +280,12 @@ class Hourly extends Db{
             $this->query("SELECT * FROM user_weather_hourly WHERE USER = ?");
             $this->bind(1,$user_id);
             $row_weather_forecast = $this->single();
+
+            if($this->count() == 0){
+                $this->closeConnection();
+                return $new_hourly;
+            }
+
             $date_weather_inserted = $row_weather_forecast['DATE'];
 
             if($date_weather_inserted > $date_1){

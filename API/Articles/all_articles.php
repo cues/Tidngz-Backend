@@ -73,6 +73,26 @@ public function all_articles($user_id, $article_source, $place_id, $place_local_
     }
 
 
+    // PROFILE
+    if($article_source == 71){
+        //  $articles = "SELECT * FROM Articles ORDER BY ID ASC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE USER_ID = '$user_1' AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+    }
+
+    if($article_source == 72){
+        $articles = "SELECT * FROM Articles WHERE USER_ID = '$user_1' AND $option ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+    }
+
+    if($article_source == 73){
+        $articles = "SELECT * FROM Articles WHERE $option  DATE between '$date_top' and '$date' AND USER_ID = '$user_1' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+    }
+
+    if($article_source == 74){
+        $articles = "SELECT * FROM Articles WHERE option DATE between '$date_1' and '$date_2' AND USER_ID = '$user_1' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+    }
+
+
+
 
     $all_articles = new Article_Ids();
 

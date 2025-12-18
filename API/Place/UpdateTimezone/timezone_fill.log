@@ -1,0 +1,23 @@
+[2025-12-17 16:02:21] Found 1 places with empty TIMEZONE.
+[2025-12-17 16:02:21] Processing ID=6903, PLACE='', PLACE_ID='ChIJkbeSa_BfYzARphNChaFPj', lat='0', lng='0'
+[2025-12-17 16:02:21] Timezone API (coords) returned status=ZERO_RESULTS
+[2025-12-17 16:02:24] Place Details returned status=INVALID_REQUEST or missing geometry
+[2025-12-17 16:02:25] Could not determine timezone for ID=6903
+[2025-12-18 04:54:38] Found 1 places with empty TIMEZONE.
+[2025-12-18 04:54:38] Processing ID=6903, PLACE='', PLACE_ID='ChIJkbeSa_BfYzARphNChaFPj', lat='0', lng='0'
+[2025-12-18 04:54:39] Timezone API (coords) returned status=ZERO_RESULTS
+[2025-12-18 04:54:40] Place Details returned status=INVALID_REQUEST or missing geometry
+[2025-12-18 04:54:41] Could not determine timezone for ID=6903
+[2025-12-18 04:55:45] Found 1 places with empty TIMEZONE.
+[2025-12-18 04:55:45] Processing ID=6903, PLACE='', PLACE_ID='ChIJkbeSa_BfYzARphNChaFPj', lat='0', lng='0'
+[2025-12-18 04:55:45] Timezone API (coords) returned status=ZERO_RESULTS
+[2025-12-18 04:55:47] Place Details returned status=INVALID_REQUEST or missing geometry
+[2025-12-18 04:55:48] Could not determine timezone for ID=6903
+[2025-12-18 04:55:48] Done processing 1 places.
+[2025-12-18 04:59:55] Found 1 places with empty TIMEZONE.
+[2025-12-18 04:59:55] Processing ID=6903, PLACE='', PLACE_ID='ChIJkbeSa_BfYzARphNChaFPj', lat='0', lng='0'
+[2025-12-18 04:59:55] Timezone API (coords) returned status=ZERO_RESULTS
+[2025-12-18 04:59:56] Place Details returned status=INVALID_REQUEST or missing geometry
+[2025-12-18 04:59:57] Could not determine timezone for ID=6903
+[2025-12-18 04:59:58] Done processing 1 places.
+[2025-12-18 10:01:58] Found 0 places with empty TIMEZONE.

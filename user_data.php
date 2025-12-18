@@ -8,13 +8,13 @@ Class UserData extends Db{
   
           $ids = array($user_id);
   
-          $this->query("SELECT * FROM User_Follow WHERE USER_ID = ? ORDER BY (case when USER_FOLLOWING_ID = '1' then 1 else 2 end), ID DESC ");
+          $this->query("SELECT * FROM User_Following WHERE USER_ID = ? ORDER BY (case when OTHER_USER_ID = '1' then 1 else 2 end), ID DESC ");
           $this->bind(1,$user_id);
 
           if($this->count() > 0){
             $array_users = $this->result();
             foreach($array_users as $user){
-              array_push($ids, (int)$user['USER_FOLLOWING_ID']);
+              array_push($ids, (int)$user['OTHER_USER_ID']);
             }
           }
  

@@ -6,9 +6,11 @@ class UserData_ {
     public $email;
     public $name;
     public $name_initial;
+    public $profile_type;
     public $sex;
     public $verified;
     public $image_oauth;
+    public $avatar;
     public $image;
     public $image_2;
     public $image_3;
@@ -18,10 +20,7 @@ class UserData_ {
     public $place; 
     public $bio; 
     public $website; 
-    public $facebook; 
-    public $instagram; 
-    public $twitter; 
-    public $youtube; 
+    public $social;
     // public $display; 
     // public $profile_display; 
     public $dark_mode;
@@ -30,11 +29,18 @@ class UserData_ {
     // public $theme_color;          
     // public $theme_type;     
     // public $theme_color_type; 
-    public $posts;
-    public $all_followers;
-    public $all_following; 
+    public $posts_count;
+    public $followers_count;
+    public $following_count; 
     public $following; 
     // public $token; 
+}
+
+class Social {
+    public $facebook; 
+    public $instagram; 
+    public $twitter; 
+    public $youtube; 
 }
 
 
@@ -53,6 +59,7 @@ class User extends Db {
 
         $user           =    New UserData_();
         $image_data     =    New ImageData(); 
+        $user->social   =    New Social();
 
         $users_name = strtolower($row_user['NAME']);
 
@@ -61,9 +68,11 @@ class User extends Db {
         $user->email              =   $row_user['EMAIL'];
         $user->name               =   ucwords($users_name);
         $user->name_initial       =   ucfirst($users_name[0]);
+        $user->profile_type       =   (int)$row_user['PROFILE_TYPE'];
         $user->sex                =   (int)$row_user['SEX'];
         $user->verified           =   (int)$row_user['VERIFIED'];
         $user->image_oauth        =   $row_user['OAUTH_IMAGE'];
+        $user->avatar             =   $image_data->get_user_image($row_user['IMAGE']);
         $user->image              =   $image_data->get_user_image($row_user['IMAGE']);
         $user->image_2            =   $image_data->get_user_image($row_user['IMAGE_2']);
         $user->image_3            =   $image_data->get_user_image($row_user['IMAGE_3']);
@@ -73,10 +82,10 @@ class User extends Db {
         $user->place              =   $row_user['PLACE'];
         $user->bio                =   $row_user['BIO'];
         $user->website            =   $row_user['WEBSITE'];
-        $user->facebook           =   $row_user['FACEBOOK'];
-        $user->instagram          =   $row_user['INSTAGRAM'];
-        $user->twitter            =   $row_user['TWITTER'];
-        $user->youtube            =   $row_user['YOUTUBE'];
+        $user->social->facebook           =   $row_user['FACEBOOK'];
+        $user->social->instagram          =   $row_user['INSTAGRAM'];
+        $user->social->twitter            =   $row_user['TWITTER'];
+        $user->social->youtube            =   $row_user['YOUTUBE'];
         // $user->display            =   (int)$row_user['ARTICLES_DISPLAY'];
         // $user->profile_display    =   (int)$row_user['ARTICLES_PROFILE_DISPLAY'];
         // $user->dark_mode          =   $row_user['DARK_MODE'] == 2 ? true : false;
@@ -89,23 +98,24 @@ class User extends Db {
 
         $this->query("SELECT * FROM Articles WHERE USER_ID = ? AND ACCEPTED='1' AND FAKE_PN='0'");
         $this->bind(1, $user->id);
-        $user->posts = (int)$this->count();
+        $user->posts_count = (int)$this->count();
 
-        $this->query("SELECT * FROM User_Follow WHERE USER_FOLLOWING_ID = ?");
+        $this->query("SELECT * FROM User_Following WHERE OTHER_USER_ID = ?");
         $this->bind(1, $user->id);
-        $user->all_followers = (int)$this->count();
+        $user->followers_count = (int)$this->count();
 
-        $this->query("SELECT * FROM User_Follow WHERE USER_ID = ?");
+        $this->query("SELECT * FROM User_Following WHERE USER_ID = ?");
         $this->bind(1, $user->id);
-        $user->all_following = (int)$this->count();
+        $user->following_count = (int)$this->count();
 
-        $this->query("SELECT * FROM User_Follow WHERE USER_ID = ? AND USER_FOLLOWING_ID = ?");
+        $this->query("SELECT * FROM User_Following WHERE USER_ID = ? AND OTHER_USER_ID = ?");
         $this->bind(1, $user_id);
         $this->bind(2, $other_user_id);
         $user->following = $this->count() == 1 ? true : false;
 
 
 
+        $this->closeConnection();
         return $user;
     }
 }

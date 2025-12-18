@@ -45,7 +45,7 @@ class Search_Place extends Db{
             }
 
         }
-
+        $this->closeConnection();
         return $new_search;
     }
 }

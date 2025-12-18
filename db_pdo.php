@@ -33,8 +33,17 @@ class Db {
 
 
     public function __construct(){
-        $this->dbh = new PDO('mysql:host='.$this->dbHost.';dbname='.$this->dbName,$this->dbUsername,$this->dbPassword);
-        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Ensure we use utf8mb4 so 4-byte unicode characters (emoji, some accented letters) are stored correctly
+        $dsn = 'mysql:host='.$this->dbHost.';dbname='.$this->dbName.';charset=utf8mb4';
+        $options = array(
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+            // Ensure connection uses utf8mb4 character set and a unicode collation
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'"
+        );
+
+        $this->dbh = new PDO($dsn, $this->dbUsername, $this->dbPassword, $options);
     }
 
     public function query($query){

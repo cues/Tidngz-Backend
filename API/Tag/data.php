@@ -18,6 +18,7 @@ class Tag extends Db{
         $tag->tag_id   =  (int)$row_tag['ID'];
         $tag->name     =  $row_tag['TAG'];
 
+        $this->closeConnection();
         return $tag;
 
     }

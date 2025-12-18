@@ -9,6 +9,20 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . '/../../../db_pdo.php';
 
+// Accept an optional place ID to process only a single row.
+// When run from CLI, pass the ID as the first argument. From web, use ?place_id=ID
+$single_place_id = null;
+if(php_sapi_name() === 'cli'){
+    global $argv;
+    if(isset($argv[1]) && is_numeric($argv[1])){
+        $single_place_id = (int)$argv[1];
+    }
+} else {
+    if(isset($_GET['place_id']) && is_numeric($_GET['place_id'])){
+        $single_place_id = (int)$_GET['place_id'];
+    }
+}
+
 // Preferred project log, fallback to /tmp which is usually world-writable on macOS
 $logFile = __DIR__ . '/timezone_fill.log';
 $altLogFile = '/tmp/timezone_fill.log';
@@ -37,9 +51,15 @@ function logMsg($msg){
 
 $db = new Db();
 
-// Fetch places with missing timezone
-$db->query("SELECT ID, PLACE_ID, LATITUDE, LONGITUDE, PLACE FROM Places WHERE TIMEZONE IS NULL OR TIMEZONE = ''");
-$places = $db->result();
+// Fetch places: either the single requested ID or all with missing timezone
+if($single_place_id !== null){
+    $db->query('SELECT ID, PLACE_ID, LATITUDE, LONGITUDE, PLACE FROM Places WHERE ID = ? LIMIT 1');
+    $db->bind(1, $single_place_id);
+    $places = $db->result();
+} else {
+    $db->query("SELECT ID, PLACE_ID, LATITUDE, LONGITUDE, PLACE FROM Places WHERE TIMEZONE IS NULL OR TIMEZONE = ''");
+    $places = $db->result();
+}
 $total = count($places);
 logMsg("Found $total places with empty TIMEZONE.");
 
@@ -126,6 +146,7 @@ foreach($places as $i => $p){
             $db->bind(2, $id);
             $db->execute();
             logMsg("Updated ID=$id with TIMEZONE='$tz'");
+            $updated_count++;
         } catch(Exception $e){
             logMsg("DB update failed for ID=$id: " . $e->getMessage());
         }
@@ -137,6 +158,20 @@ foreach($places as $i => $p){
     usleep(250000);
 }
 
+    // Close DB connection via the Db instance
+        $db->closeConnection();
 logMsg("Done processing $total places.");
+
+// If script was invoked for a single place, return a non-zero exit code when no update occurred
+if($single_place_id !== null){
+    if(isset($updated_count) && $updated_count > 0){
+        exit(0);
+    } else {
+        // indicate failure to determine/update timezone for the single requested place
+        exit(2);
+    }
+} else {
+    exit(0);
+}
 
 ?>

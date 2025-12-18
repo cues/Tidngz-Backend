@@ -66,6 +66,7 @@ class Search_User extends Db {
 
         }
 
+        $this->closeConnection();
         return $new_search;
 
     }

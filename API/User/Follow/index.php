@@ -5,19 +5,21 @@ require "../../../headers.php";
 require "../../../response.php";
 require "../../../db_pdo.php";
 require "data.php"; 
-
+require "../data.php";
+require "../../../images.php";
 
   
 if(!empty($_GET['key']))
 {
    
     
-        $key          =     empty($_GET['key'])               ?    0    :    mysqli_real_escape_string($con,$_GET['key']);
-        $user_id      =     empty($_GET['user_id'])           ?    0    :    mysqli_real_escape_string($con,$_GET['user_id']);
+        $key            =     empty($_GET['key'])               ?    0    :    mysqli_real_escape_string($con,$_GET['key']);
+        $user_id        =     empty($_GET['user_id'])           ?    0    :    mysqli_real_escape_string($con,$_GET['user_id']);
+        $other_user_id  =     empty($_GET['other_user_id'])     ?    0    :    mysqli_real_escape_string($con,$_GET['other_user_id']);
 
 
 
-        $sanitize_1 = array($key, $user_id);
+        $sanitize_1 = array($key, $user_id, $other_user_id);
 
         if( Sanitize::check_sanitize($sanitize_1, 1)){
              response(400,"Invalid Request",NULL);
@@ -31,9 +33,8 @@ if(!empty($_GET['key']))
 
 
 
-
-        $place = New PlaceTimezone();
-        $data = $place->get_place_timezone($user_id);
+    $user = New FollowUser();
+    $data = $user->follow_user($user_id, $other_user_id);
 
 
 
