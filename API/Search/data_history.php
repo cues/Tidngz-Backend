@@ -18,7 +18,7 @@ class Search_History extends Db{
         $new_search = New SearchHistory();
 
 
-        $this->query("SELECT DISTINCT SEARCH_ITEM, SEARCH_ITEM_ID FROM Search_History WHERE USER = ? AND ACTIVE = '0' ORDER BY ID DESC LIMIT 50");
+        $this->query("SELECT DISTINCT SEARCH_ITEM, SEARCH_ITEM_ID FROM Search_History WHERE USER = ? AND ACTIVE = '0' ORDER BY DATE DESC LIMIT 50");
         $this->bind(1, $user_id);
         $row_history = $this->result();
 
