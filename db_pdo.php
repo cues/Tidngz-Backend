@@ -1,11 +1,54 @@
 <?php
-//$con = mysqli_connect("localhost","erroll","erroll","Tidngz");
-//$con_c = mysqli_connect("localhost","erroll","erroll","Tidngz");
+// Read DB config from environment (Cloud Run) with local defaults for XAMPP
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbPort = getenv('DB_PORT') ?: '3306';
+$dbName = getenv('DB_NAME') ?: 'Tidngz';
+$dbUser = getenv('DB_USER') ?: 'Erroll';
+$dbPass = getenv('DB_PASS') ?: 'Cues@1707';
 
-$con = mysqli_connect("localhost","Erroll","Cues@1707","Tidngz");
-if (mysqli_connect_errno())
-{
-  echo "Failed to connect to MYSQL:" .mysqli_connect_error();
+// If Cloud Run has Cloud SQL instance attached, prefer unix socket.
+// Set INSTANCE_CONNECTION_NAME=tidngz-221511:europe-west2:tidngz1707 in Cloud Run.
+$instanceConnectionName = getenv('INSTANCE_CONNECTION_NAME') ?: '';
+$cloudSqlSocket = $instanceConnectionName ? (getenv('DB_SOCKET') ?: ("/cloudsql/".$instanceConnectionName)) : '';
+
+// mysqli connection:
+// - Cloud SQL connector: use unix socket
+// - local/dev: use TCP host/port
+if ($cloudSqlSocket) {
+  // When using unix_socket, pass port 0 to avoid PHP treating it as TCP.
+  $con = mysqli_connect('localhost', $dbUser, $dbPass, $dbName, 0, $cloudSqlSocket);
+} else {
+  $con = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName, (int)$dbPort);
+}
+
+$appEnv = getenv('APP_ENV') ?: 'prod';
+$isLocal = in_array(strtolower($appEnv), ['local', 'dev', 'development'], true);
+
+if ($isLocal) {
+	ini_set('display_errors', '1');
+	ini_set('display_startup_errors', '1');
+	error_reporting(E_ALL);
+} else {
+	ini_set('display_errors', '0');
+}
+
+if (mysqli_connect_errno()) {
+	$msg = "mysqli connect failed: " . mysqli_connect_error();
+
+	// Helpful context (no passwords)
+	error_log($msg);
+	error_log(sprintf(
+		"DB context: env=%s host=%s port=%s db=%s user=%s socket=%s",
+		$appEnv,
+		$dbHost,
+		$dbPort,
+		$dbName,
+		$dbUser,
+		$cloudSqlSocket ?: '(none)'
+	));
+
+	http_response_code(500);
+	exit($isLocal ? $msg : "Database connection failed");
 }
 
 
@@ -29,21 +72,48 @@ class Db {
     protected $userTbl    = 'users';
     protected $dbh;
     protected $stmt;
-    
-
 
     public function __construct(){
-        // Ensure we use utf8mb4 so 4-byte unicode characters (emoji, some accented letters) are stored correctly
-        $dsn = 'mysql:host='.$this->dbHost.';dbname='.$this->dbName.';charset=utf8mb4';
+        // Prefer env vars in Cloud Run; fallback to existing defaults for local dev
+        $name = getenv('DB_NAME') ?: $this->dbName;
+        $user = getenv('DB_USER') ?: $this->dbUsername;
+        $pass = getenv('DB_PASS') ?: $this->dbPassword;
+
+        $instanceConnectionName = getenv('INSTANCE_CONNECTION_NAME') ?: '';
+        $socket = $instanceConnectionName ? (getenv('DB_SOCKET') ?: ("/cloudsql/".$instanceConnectionName)) : '';
+
+        if ($socket) {
+            // Cloud SQL connector path (Cloud Run)
+            $dsn = 'mysql:unix_socket='.$socket.';dbname='.$name.';charset=utf8mb4';
+        } else {
+            // TCP fallback (local dev)
+            $host = getenv('DB_HOST') ?: $this->dbHost;
+            $port = getenv('DB_PORT') ?: '3306';
+            $dsn = 'mysql:host='.$host.';port='.$port.';dbname='.$name.';charset=utf8mb4';
+        }
+
         $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
-            // Ensure connection uses utf8mb4 character set and a unicode collation
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'"
         );
 
-        $this->dbh = new PDO($dsn, $this->dbUsername, $this->dbPassword, $options);
+        try {
+            $this->dbh = new PDO($dsn, $user, $pass, $options);
+        } catch (PDOException $e) {
+            $msg = "PDO connection failed: " . $e->getMessage();
+            error_log($msg);
+            error_log("PDO DSN: " . $dsn);
+
+            $appEnv = getenv('APP_ENV') ?: 'prod';
+            $isLocal = in_array(strtolower($appEnv), ['local', 'dev', 'development'], true);
+
+            if (!headers_sent()) {
+                http_response_code(500);
+            }
+            exit($isLocal ? $msg : "Database connection failed");
+        }
     }
 
     public function query($query){
@@ -92,8 +162,9 @@ class Db {
       }
 
     public function closeConnection() {
-        $stmt = null;
-        $dbh = null;
+        // Actually release PDO resources
+        $this->stmt = null;
+        $this->dbh = null;
     }
 	
 }
