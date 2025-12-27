@@ -72,7 +72,7 @@ class Db {
     protected $userTbl    = 'users';
     protected $dbh;
     protected $stmt;
-
+   
     public function __construct(){
         // Prefer env vars in Cloud Run; fallback to existing defaults for local dev
         $name = getenv('DB_NAME') ?: $this->dbName;
