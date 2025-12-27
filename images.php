@@ -613,7 +613,7 @@ class ImageData {
             $flag = 'Serbia.png';
           }
           else if($country == "Seychelles"){
-            $flag = 'Sychelles.png';
+            $flag = 'Seychelles.png';
           }
           else if($country == "Sierra Leone"){
             $flag = 'Sierra Leone.png';

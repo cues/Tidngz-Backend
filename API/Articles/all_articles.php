@@ -39,37 +39,37 @@ public function all_articles($user_id, $article_source, $place_id, $place_local_
     // HOME
     if($article_source == 11){
         //  $articles = "SELECT * FROM Articles ORDER BY ID ASC LIMIT $article_limit";
-        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE_ID IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 12){
-        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE_ID IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 13){
-        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option  DATE between '$date_top' and '$date' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE_ID IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option  DATE between '$date_top' and '$date' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 14){
-        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option DATE between '$date_1' and '$date_2' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE ((USER_ID IN ($users_following)) OR (PLACE_ID IN ($places_following))) AND USER_ID NOT IN ($users_blocked) AND $option DATE between '$date_1' and '$date_2' AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     
     // PLACE
     if($article_source == 21){
-        $articles = "SELECT * FROM Articles WHERE PLACE IN ($all_places) AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE PLACE_ID IN ($all_places) AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 22){
-        $articles = "SELECT * FROM Articles WHERE PLACE IN ($all_places) AND $option USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE PLACE_ID IN ($all_places) AND $option USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 23){
-        $articles = "SELECT * FROM Articles WHERE PLACE IN ($all_places) AND $option DATE between '$date_top' and '$date' AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE PLACE_ID IN ($all_places) AND $option DATE between '$date_top' and '$date' AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1') OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
     if($article_source == 24){
-        $articles = "SELECT * FROM Articles WHERE PLACE IN ($all_places) AND $option DATE between '$date_1' and '$date_2' AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
+        $articles = "SELECT * FROM Articles WHERE PLACE_ID IN ($all_places) AND $option DATE between '$date_1' and '$date_2' AND USER_ID NOT IN ($users_blocked) AND ((FAKE_PN = '0' AND ACCEPTED = '1')  OR ($users_articles)) ORDER BY ID DESC LIMIT $article_limit";
     }
 
 

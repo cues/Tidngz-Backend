@@ -1,11 +1,13 @@
 <?php
 
-require "../../headers.php";
-require "../../response.php";
-require "../../db_pdo.php";
+
+require "../../../headers.php";
+require "../../../response.php";
+require "../../../db_pdo.php";
 require "data.php"; 
 
-
+echo 1;
+return;
 
 
 
@@ -14,19 +16,22 @@ if(!empty($_GET['key']))
 
         $key                 =     empty($_GET['key'])               ?    0    :    mysqli_real_escape_string($con,$_GET['key']);
         $user_id             =     empty($_GET['user_id'])           ?    0    :    mysqli_real_escape_string($con,$_GET['user_id']);
-        $post_anyn           =     empty($_GET['post_anyn'])         ?    0    :    mysqli_real_escape_string($con,$_GET['post_anyn']);
+        // $post_anyn           =     empty($_GET['post_anyn'])         ?    0    :    mysqli_real_escape_string($con,$_GET['post_anyn']);
         $type                =     empty($_GET['type'])              ?    0    :    mysqli_real_escape_string($con,$_GET['type']);
         $tags                =     empty($_GET['tags'])              ?    0    :    mysqli_real_escape_string($con,$_GET['tags']);
-        $screen_size         =     empty($_GET['screen_size'])       ?    1    :    mysqli_real_escape_string($con,$_GET['screen_size']);
+        // $screen_size         =     empty($_GET['screen_size'])       ?    1    :    mysqli_real_escape_string($con,$_GET['screen_size']);
         $place_id            =     empty($_GET['place_id'])          ?    0    :    mysqli_real_escape_string($con,$_GET['place_id']);
-        $place_local_id      =     empty($_GET['place_local_id'])    ?    0    :    mysqli_real_escape_string($con,$_GET['place_local_id']);
-        $landmark_desc       =     empty($_GET['landmark_desc'])     ?    0    :    mysqli_real_escape_string($con,$_GET['landmark_desc']);
+        // $place_local_id      =     empty($_GET['place_local_id'])    ?    0    :    mysqli_real_escape_string($con,$_GET['place_local_id']);
+        // $landmark_desc       =     empty($_GET['landmark_desc'])     ?    0    :    mysqli_real_escape_string($con,$_GET['landmark_desc']);
         $category_id         =     empty($_GET['category_id'])       ?    0    :    mysqli_real_escape_string($con,$_GET['category_id']);
-        $headline            =     empty($_GET['headline'])          ?    0    :    mysqli_real_escape_string($con,$_GET['headline']);
+        $pin                 =     empty($_GET['pin'])       ?    0    :    mysqli_real_escape_string($con,$_GET['pin']);
+        $title               =     empty($_GET['title'])          ?    0    :    mysqli_real_escape_string($con,$_GET['title']);
         $description         =     empty($_GET['description'])       ?    ''   :    mysqli_real_escape_string($con,$_GET['description']);
         $link                =     empty($_GET['link'])              ?    0    :    mysqli_real_escape_string($con,$_GET['link']);
-        $linked_number       =     empty($_GET['linked_number'])     ?    0    :    mysqli_real_escape_string($con,$_GET['linked_number']);
-        $linked_article      =     empty($_GET['linked_article'])    ?    0    :    mysqli_real_escape_string($con,$_GET['linked_article']);
+        $youtube             =     empty($_GET['youtube'])              ?    0    :    mysqli_real_escape_string($con,$_GET['youtube']);
+
+        // $linked_number       =     empty($_GET['linked_number'])     ?    0    :    mysqli_real_escape_string($con,$_GET['linked_number']);
+        // $linked_article      =     empty($_GET['linked_article'])    ?    0    :    mysqli_real_escape_string($con,$_GET['linked_article']);
        
       
 

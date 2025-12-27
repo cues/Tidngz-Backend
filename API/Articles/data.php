@@ -12,6 +12,7 @@ class Article
     public $articles_title;
     public $articles_content;     
     public $articles_link;
+    public $articles_youtube;
     public $linked_number;   
     public $linked_article;
     public $linked_count;
@@ -199,8 +200,9 @@ class Articles extends Db{
                     $new_article->articles[$a]->articles_type = (int)$article['TYPE'];
                     $new_article->articles[$a]->articles_screen = (int)$article['SCREEN'];
                     $new_article->articles[$a]->articles_title = $article['TITLE'];
-                    $new_article->articles[$a]->articles_content = $article['ARTICLE'];
+                    $new_article->articles[$a]->articles_content = $article['CONTENT'];
                     $new_article->articles[$a]->articles_link = strtolower($article['LINK']);
+                    $new_article->articles[$a]->articles_youtube = strtolower($article['YOUTUBE']);
                     $new_article->articles[$a]->linked_number = (int)$article['LINKED_NUMBER'];
                     $linked_article = (int)$article['LINKED_ARTICLE'];
                     $new_article->articles[$a]->linked_article = $linked_article;
@@ -276,7 +278,7 @@ class Articles extends Db{
 
                     // Category
                     $new_article->articles[$a]->option = new Category();
-                    $articles_category_id = $article['CATEGORY'];
+                    $articles_category_id = $article['CATEGORY_ID'];
 
                     $this->query("SELECT * FROM Categories WHERE ID = ?");
                     $this->bind(1,$articles_category_id);
@@ -363,7 +365,7 @@ class Articles extends Db{
 
                     $image_data        =    New ImageData();
                     
-                    $place_id = $article['PLACE'];
+                    $place_id = $article['PLACE_ID'];
             
                     $this->query("SELECT * FROM Places WHERE ID = ?");
                     $this->bind(1,$place_id);
