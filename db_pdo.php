@@ -16,6 +16,8 @@ $dbPass = getenv('DB_PASS') ?: 'Cues@1707';
 $instanceConnectionName = getenv('INSTANCE_CONNECTION_NAME') ?: '';
 $cloudSqlSocket = $instanceConnectionName ? (getenv('DB_SOCKET') ?: ("/cloudsql/".$instanceConnectionName)) : '';
 
+// Debug logging to help identify 500 errors
+error_log("DB Config: Host=$dbHost, Socket=" . ($cloudSqlSocket ?: 'none') . ", User=$dbUser, DB=$dbName");
 
 if ($cloudSqlSocket) {
 	$con = mysqli_connect('localhost', $dbUser, $dbPass, $dbName, 0, $cloudSqlSocket);
@@ -39,7 +41,9 @@ $date_today = date('Y-m-d');
 $recaptcha_secretKey = "6LcKjSUsAAAAANit5CwEABXg1Uon4d3DSEyVE_oo";
 
 // Google API Key
-$google_api_key = "AIzaSyByKeN4udg5wvJwfTF6HEIgzCvTKPoW6ZY";
+// $google_api_key = "AIzaSyByKeN4udg5wvJwfTF6HEIgzCvTKPoW6ZY";
+$google_api_key = "AIzaSyCc0Xcf1L52LM2-a7SspVXDQyH1nHrAScY";
+
 
 // Define user class
 class Db {
