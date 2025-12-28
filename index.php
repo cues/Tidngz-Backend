@@ -4,5 +4,5 @@ require "response.php";
 require "db_pdo.php";
 require "data.php"; 
 
-echo"Tidngz API 125";
+echo"Tidngz API 12545";
 return;
