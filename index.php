@@ -9,7 +9,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
      case '/API/Articles':
         require __DIR__'API/Articles/index.php';
         break;
-    case '/homepage.php':
+    case '/homepage':
         require 'homepage.php';
         break;
     case '/contact.php':
