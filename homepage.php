@@ -6,7 +6,7 @@ require "response.php";
 require "db_pdo.php";
 // require "data.php"; 
 
-require "images.php";
+// require "images.php";
 // require "../../user_data.php";
 
   
