@@ -6,7 +6,7 @@ require "data.php";
 
 
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
-    case '/':
+    case '/homepage.php':
         require 'homepage.php';
         break;
     case '/contact.php':
