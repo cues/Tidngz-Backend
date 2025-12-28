@@ -1,6 +1,10 @@
 <?php
 //$con = mysqli_connect("localhost","erroll","erroll","Tidngz");
 //$con_c = mysqli_connect("localhost","erroll","erroll","Tidngz");
+
+$appEnv = getenv('APP_ENV') ?: 'prod';
+$isLocal = in_array(strtolower($appEnv), ['local', 'dev', 'development'], true);
+
 // Read DB config from environment (Cloud Run) with local defaults for XAMPP
 $dbHost = getenv('DB_HOST') ?: 'localhost';
 $dbPort = getenv('DB_PORT') ?: '3306';
