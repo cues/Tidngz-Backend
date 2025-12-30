@@ -11,6 +11,7 @@ class AddPlace extends Db{
 
             global $date;
 
+
             // Debugging: log incoming parameters (helpful to diagnose HTTP 500)
             // if(function_exists('error_log')){
             //     error_log('AddPlace::add_place called with user_id='.var_export($user_id,true).', place_id='.var_export($place_id,true));
@@ -69,6 +70,7 @@ class AddPlace extends Db{
 
         // if(!empty($existing) && isset($existing['ID'])){
         // }
+            // return $formatted_address;
 
         if($this->execute()){
                 // get last insert id

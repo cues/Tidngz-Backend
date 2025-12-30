@@ -34,7 +34,7 @@ class Search_Place extends Db{
 
                 $new_search->items[$p] = New Items_Places();
 
-                $new_search->items[$p]->item = New PlaceData(); 
+                // $new_search->items[$p]->item = New PlaceData(); 
 
                 $place = New Place();
 

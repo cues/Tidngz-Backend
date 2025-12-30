@@ -1,6 +1,6 @@
 <?php
 
-Class TagData extends Db{
+Class TagData_ extends Db{
     public function all_tags($tag){
 
         $ids = array();
@@ -18,7 +18,8 @@ Class TagData extends Db{
         $ids = implode(',',$ids);
         $ids = !$ids ? 0 : $ids;
 
-          return $ids;
+        $this->closeConnection();
+        return $ids;
 
     }
 }

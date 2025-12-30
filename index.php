@@ -5,20 +5,21 @@ require "db_pdo.php";
 require "data.php";
 
 
-// $place = $_GET['place_id'];
-// echo $place;
-// return;
+// Fix: Instantiate the Db class. You cannot use $this in the global scope.
+$place_id = $_GET['place_id'] ?? null;
 
-$this->query("SELECT * from Places WHERE ID = ?");
-        $this->bind(1, $place_id);
+if ($place_id) {
+    $db = new Db();
+    $db->query("SELECT * from Places WHERE ID = ?");
+    $db->bind(1, $place_id);
 
-        $row_place = $this->single();
-        $count = $this->count();
+    $row_place = $db->single();
+    $count = $db->count();
 
-        echo $count;
-        return;
-
-
+    echo $count;
+    $db->closeConnection();
+    return;
+}
 
 // switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
 //     case '/':

@@ -1,6 +1,6 @@
 <?php
 
-Class PlaceData extends Db{
+Class PlaceData_ extends Db{
     public function all_places($place_id){
 
       // return 1;

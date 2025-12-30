@@ -3,78 +3,68 @@
 
 
 class AddArticle extends Db {
-    public function add_article($user_id, $post_anyn, $type, $screen_size, $place_id, 
-                                $place_local_id, $landmark_desc, $category_id, $headline, 
-                                $description, $link, $linked_number, $linked_article, $tags){ 
+    public function add_article($user_id, $place_id, $category_id, $title, $description, $link, $youtube, $tags, $latitude, $longitude, $poi){ 
                       
-                     global $date;
+            global $date;
 
-            $tags = (explode(",",$tags));
-
-            if($category_id == 5 || $category_id == 15 || $category_id == 16){
-                $post_anyn = $post_anyn == '1' ? '1' : '0';
-            }else{
-                $post_anyn == '0';
-            }
-
-            if($landmark_desc != 'At' || $landmark_desc != 'In' || $landmark_desc != 'Near' ||
-             $landmark_desc != 'In front of' || $landmark_desc != 'Behind' || $landmark_desc != 'At the side of'){
-                $landmark_desc == 'Near';
-            }
+            // Remove backslashes (e.g. \' becomes ')
+            $title = stripslashes($title);
+            $description = stripslashes($description);
 
             $description = $description == '<p>&nbsp;</p>' ? "" : $description;
 
             $this->query("INSERT INTO Articles
-                            (   TYPE, SCREEN, LINKED_NUMBER, LINKED_ARTICLE, USER_ID, USER_IF_ANONYMOUS, 
-                                PLACE, PLACE_LOCAL, PLACE_LOCAL_DESC, CATEGORY, TITLE, ARTICLE, LINK, DATE  )
-                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ");
-            $this->bind(1,$type);
-            $this->bind(2,$screen_size);
-            $this->bind(3,$linked_number);
-            $this->bind(4,$linked_article);
-            $this->bind(5,$user_id);
-            $this->bind(6,$post_anyn);
-            $this->bind(7,$place_id);
-            $this->bind(8,$place_local_id);
-            $this->bind(9,$landmark_desc);
-            $this->bind(10,$category_id);
-            $this->bind(11,$headline);
-            $this->bind(12,$description);
-            $this->bind(13,$link);
-            $this->bind(14,$date);
+                            ( USER_ID, PLACE_ID, CATEGORY_ID, TITLE, CONTENT, LINK, YOUTUBE, LATITUDE, LONGITUDE, POI, DATE  )
+                            VALUES (?,?,?,?,?,?,?,?,?,?,?) ");
+            $this->bind(1,$user_id);
+            $this->bind(2,$place_id);
+            $this->bind(3,$category_id);
+            $this->bind(4,$title);
+            $this->bind(5,$description);
+            $this->bind(6,$link);
+            $this->bind(7,$youtube);
+            $this->bind(8,$latitude);
+            $this->bind(9,$longitude);
+            $this->bind(10,$poi);
+            $this->bind(11,$date);
+            
             if($this->execute()){
 
-                $this->query("SELECT * FROM Articles where USER_ID = '$user_id' ORDER BY ID DESC");
-                $this->bind(1,$user_id);
-                $row_article_id = $this->single();
-                $article_id = $row_article_id['ID'];
-            
+                // Get the ID of the newly created article
+                $article_id = $this->dbh->lastInsertId();
 
-                $this->query("UPDATE Article_Videos SET ARTICLE = ?, PUBLISH = ? WHERE USER = ? AND PUBLISH = ?");
-                $this->bind(1,$article_id);
-                $this->bind(2,1);
-                $this->bind(3,$user_id);
-                $this->bind(4,0);
-                $this->execute();
+                // Now insert the tags linked to this article
+                // Prepare tags array (but don't insert yet)
+                $tags_array = array_filter(explode(",", $tags));
 
+                // Handle tags: Input might be JSON string (["tag1","tag2"])
+                $tags_array = json_decode($tags, true);
+                
+                if (!is_array($tags_array)) {
+                    // Fallback: Remove JSON symbols (brackets, quotes, backslashes) and explode
+                    $clean_tags = str_replace(['[', ']', '"', "'", '\\'], '', $tags);
+                    $tags_array = explode(",", $clean_tags);
+                }
 
-                foreach($tags as $tag){
+                // Filter empty tags
+                $tags_array = array_filter($tags_array, function($t) { return trim($t) !== ''; });
+
+                foreach($tags_array as $tag){
+                    $tag = trim($tag);
+                    if(empty($tag)) continue;
+
                     $this->query("INSERT INTO Article_Tags(USER,ARTICLE,TAG,DATE)VALUES(?,?,?,?)");
                     $this->bind(1,$user_id);
-                    $this->bind(2,$article_id);
+                    $this->bind(2,$article_id); // Use real ID
                     $this->bind(3,$tag);
                     $this->bind(4,$date);
                     $this->execute();
                 }
-
                 
-                return 1;
-
+                return $article_id;
 
             }else{
                 return 2;
             }
-
-
     }
 }

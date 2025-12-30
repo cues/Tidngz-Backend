@@ -18,7 +18,7 @@ Class AllComments extends Db{
         $all_comments_following    =    $this->all_comment_following($articles_id, $user_id);
     
 
-        $user_data         =    New UserData();
+        $user_data         =    New UserData_();
         $users_following   =    $user_data->users_following($user_id);
 
         $all_comments = new CommentIds();
@@ -90,7 +90,7 @@ Class AllComments extends Db{
         global $con;
       
         $ids = array();
-        $user_data          =   New UserData();
+        $user_data          =   New UserData_();
         $users_following    =   $user_data->users_following($user_id);
       
         $this->query("SELECT * from Article_Comments where ARTICLE = ? AND USER NOT LIKE (?) AND USER IN ($users_following) ORDER BY ID DESC ") ;

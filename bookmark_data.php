@@ -1,6 +1,6 @@
 <?php
 
-Class BookmarkData extends Db{
+Class BookmarkData_ extends Db{
     public function all_bookmarks($user_id){
 
         $ids = array();

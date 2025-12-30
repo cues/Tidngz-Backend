@@ -12,6 +12,11 @@ $dbName = getenv('DB_NAME') ?: 'Tidngz';
 $dbUser = getenv('DB_USER') ?: 'Erroll';
 $dbPass = getenv('DB_PASS') ?: 'Cues@1707';
 
+// Diagnostic: Warn if env vars are missing in Cloud Run (prevents silent fallback to local creds)
+if (!$isLocal && getenv('DB_USER') === false) {
+    error_log("WARNING: DB_USER environment variable is not set. Using local fallback 'Erroll', which will likely fail in Cloud Run.");
+}
+
 // If Cloud Run has Cloud SQL instance attached, prefer unix socket.
 $instanceConnectionName = getenv('INSTANCE_CONNECTION_NAME') ?: '';
 $cloudSqlSocket = $instanceConnectionName ? (getenv('DB_SOCKET') ?: ("/cloudsql/".$instanceConnectionName)) : '';
@@ -20,7 +25,8 @@ $cloudSqlSocket = $instanceConnectionName ? (getenv('DB_SOCKET') ?: ("/cloudsql/
 error_log("DB Config: Host=$dbHost, Socket=" . ($cloudSqlSocket ?: 'none') . ", User=$dbUser, DB=$dbName");
 
 if ($cloudSqlSocket) {
-	$con = mysqli_connect('localhost', $dbUser, $dbPass, $dbName, 0, $cloudSqlSocket);
+	// Cloud Run recommended: host=null, port=null, socket=/cloudsql/...
+	$con = mysqli_connect(null, $dbUser, $dbPass, $dbName, null, $cloudSqlSocket);
 } else {
 	$con = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName, (int)$dbPort);
 }
@@ -160,7 +166,7 @@ class Db {
 
 class Sanitize {
     private static $check_sanitize           =    "/(DROP TABLE|TRUNCATE TABLE|DROP DATABASE|DELETE FROM|mysqli_query|[\'\"^!£$%&*()}{#~?;|=¬])/i";
-    private static $check_sanitize_tag       =    "/(DROP TABLE|TRUNCATE TABLE|DROP DATABASE|DELETE FROM|mysqli_query|[\'\"^])/i";
+    private static $check_sanitize_tag       =    "/(DROP TABLE|TRUNCATE TABLE|DROP DATABASE|DELETE FROM|mysqli_query|[\'^])/i";
     private static $check_sanitize_text      =    "/(DROP TABLE|TRUNCATE TABLE|DROP DATABASE|DELETE FROM|mysqli_query)/i";
     private static $check_sanitize_username  =    "/(DROP TABLE|TRUNCATE TABLE|DROP DATABASE|DELETE FROM|mysqli_query|Home|Add|Place|PLace_Landmark|Article|Tag|World_Map|Messenger|Bookmarks|Theme|Accout|Terms|Privacy|Help|About|Ads|Contact|Settings|Login|Logout|_News[\'\",;|+¬])/i";
     

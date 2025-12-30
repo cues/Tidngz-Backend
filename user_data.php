@@ -2,7 +2,7 @@
 
 
 
-Class UserData extends Db{
+Class UserData_ extends Db{
   public function users_following($user_id){
     global $con;
   

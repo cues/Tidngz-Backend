@@ -8,7 +8,8 @@ require "data.php";
 require "all_articles.php";
 require "../../user_data.php";
 require "../../place_data.php";
-
+require "../Place/data.php";
+require "../User/data.php";
 require "../../images.php";
 
 require "Comment/Comment/Get/all_comments.php"; 
@@ -39,7 +40,8 @@ if(!empty($_GET['key']))
 
 
         $article_limit = 2000;
-        $users_articles = "USER_ID = '$user_id' AND ACCEPTED = '1' AND FAKE_PN = '0'";
+        // $users_articles = "USER_ID = '$user_id' AND ACCEPTED = '1' AND FAKE_PN = '0'";
+        $users_articles = "USER_ID = '$user_id' AND DELETED = '0'";
 
         // response(400,"Invalid Request",$users_articles);
         //      exit();
@@ -54,15 +56,11 @@ if(!empty($_GET['key']))
              exit();
         }
 
-        $check_key = mysqli_query($con,"SELECT * FROM Api_Keys WHERE CLIENT = '$key'");
-        $row_key = mysqli_num_rows($check_key);
 
-        if($row_key == 0){
+        if(!APIKey::check_key($con, $key)){
              response(400,"Invalid Key",NULL);
              exit();
         }
-
-
 
 // 
 

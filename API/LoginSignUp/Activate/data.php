@@ -14,8 +14,10 @@ class Activate extends Db{
             $this->bind(2, 0);
             $this->bind(3, $email);
             $this->execute();
+            $this->closeConnection();
             return 1;
         }else{
+            $this->closeConnection();
             return 2;
         }
     }

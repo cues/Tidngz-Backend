@@ -17,6 +17,7 @@ class Themes extends Db {
         $dark->username        =  $this_user['USERNAME'];
         $dark->user_dark_mode  =  $this_user['DARK_MODE'] == 2 ? true : false;
 
+        $this->closeConnection();
         return $dark;
     }
 }

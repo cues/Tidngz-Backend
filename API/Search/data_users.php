@@ -20,7 +20,7 @@ class Search_User extends Db {
 
         $image_data        =    New ImageData();
 
-        $user_data         =    New UserData();
+        $user_data         =    New UserData_();
         $users_blocked     =    $user_data->users_blocked($user_id);
 
 

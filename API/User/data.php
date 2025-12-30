@@ -1,6 +1,6 @@
 <?php
 
-class UserData_ {
+class UserData {
     public $id;     
     public $username;
     public $email;
@@ -57,7 +57,7 @@ class User extends Db {
             return '';
         }
 
-        $user           =    New UserData_();
+        $user           =    New UserData();
         $image_data     =    New ImageData(); 
         $user->social   =    New Social();
 
