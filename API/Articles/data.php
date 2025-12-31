@@ -12,10 +12,10 @@ class Article
     public $articles_title;
     public $articles_content;     
     public $articles_link;
-    public $articles_youtube;
     public $articles_latitude;
     public $articles_longitude;
     public $articles_poi;
+    public $youtube;
     
     // public $linked_number;   
     // public $linked_article;
@@ -202,13 +202,16 @@ class Articles extends Db{
                     $new_article->articles[$a]->articles_id = (int)$article['ID'];
                     // $new_article->articles[$a]->articles_type = (int)$article['TYPE'];
                     // $new_article->articles[$a]->articles_screen = (int)$article['SCREEN'];
-                    $new_article->articles[$a]->articles_title = $article['TITLE'];
-                    $new_article->articles[$a]->articles_content = $article['CONTENT'];
+                    
+                    // Decode HTML entities back to emojis/characters
+                    $new_article->articles[$a]->articles_title = html_entity_decode($article['TITLE'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                    $new_article->articles[$a]->articles_content = html_entity_decode($article['CONTENT'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                    
                     $new_article->articles[$a]->articles_link = strtolower($article['LINK']);
-                    $new_article->articles[$a]->articles_youtube = strtolower($article['YOUTUBE']);
                     $new_article->articles[$a]->articles_latitude = $article['LATITUDE'];
                     $new_article->articles[$a]->articles_longitude = $article['LONGITUDE'];
                     $new_article->articles[$a]->articles_poi = $article['POI'];
+                    $new_article->articles[$a]->youtube = $article['YOUTUBE'];
 
                     // $new_article->articles[$a]->linked_number = (int)$article['LINKED_NUMBER'];
                     // $linked_article = (int)$article['LINKED_ARTICLE'];
